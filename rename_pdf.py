@@ -1,14 +1,13 @@
 import os
 import sys
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 
 def extract_text_from_first_page(pdf_path):
     try:
-        with open(pdf_path, 'rb') as file:
-            reader = PdfFileReader(file)
-            if reader.numPages > 0:
-                first_page = reader.getPage(0)
-                return first_page.extract_text()
+        reader = PdfReader(pdf_path)
+        if len(reader.pages) > 0:
+            first_page = reader.pages[0]
+            return first_page.extract_text()
     except Exception as e:
         print(f"Error reading {pdf_path}: {e}")
     return None

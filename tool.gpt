@@ -1,0 +1,4 @@
+Description: Renames a PDF file based on the text extracted from its first page.
+Param: PDF_PATH: The full path to the PDF file to be renamed.
+
+#!/usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/rename_pdf.py
